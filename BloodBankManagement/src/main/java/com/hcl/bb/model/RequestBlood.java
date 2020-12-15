@@ -46,6 +46,10 @@ public class RequestBlood implements Serializable {
 
 	@Column(name = "request_status", nullable = false, length = 20)
 	private String requestStatus;
+	
+	@Column(name="account_id",nullable=false,length=5)
+	private long accountId;
+
 
 
 	public RequestBlood() {
@@ -53,7 +57,7 @@ public class RequestBlood implements Serializable {
 	}
 
 	public RequestBlood(long patientId, String patientName, String bloodGroup, String city, String doctorName,
-			String hospitalAddress, String when, String contactName, String contactNumber, String contactEmail,String requestStatus) {
+			String hospitalAddress, String when, String contactName, String contactNumber, String contactEmail,String requestStatus,int accountId) {
 		super();
 		this.patientId = patientId;
 		this.patientName = patientName;
@@ -66,6 +70,7 @@ public class RequestBlood implements Serializable {
 		this.contactNumber = contactNumber;
 		this.contactEmail = contactEmail;
 		this.requestStatus=requestStatus;
+		this.accountId=accountId;
 	}
 
 	public long getPatientId() {
@@ -154,5 +159,13 @@ public class RequestBlood implements Serializable {
 
 	public void setRequestStatus(String requestStatus) {
 		this.requestStatus = requestStatus;
+	}
+	
+	public long getAccountId() {
+		return accountId;
+	}
+
+	public void setAccountId(long accountId) {
+		this.accountId = accountId;
 	}
 }

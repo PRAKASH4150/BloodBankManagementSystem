@@ -18,7 +18,7 @@ public class RequestBloodDaoImpl implements RequestBloodDao{
 
 		Session session=sessionFactory.getCurrentSession();
 		requestBlood.setRequestStatus("Approval Pending");
-		requestBlood.setPatientId(user.getUserId());
+		requestBlood.setAccountId(user.getUserId());
     	session.save(requestBlood);
     	return true;
 	}

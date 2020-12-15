@@ -19,10 +19,10 @@ public class DonationStatusDaoImpl implements DonationStatusDao{
 	
 	public List<DonateBlood> getDonationList(User user) {
 
-		String hql="FROM DonateBlood donateBlood WHERE donateBlood.patientId=:patientId";
+		String hql="FROM DonateBlood donateBlood WHERE donateBlood.accountId=:accountId";
 		Session session = sessionFactory.getCurrentSession();
 		Query query = session.createQuery(hql);
-		query.setParameter("patientId",user.getUserId());
+		query.setParameter("accountId",user.getUserId());
 		
 		return query.getResultList(); 
 	}

@@ -41,17 +41,16 @@
 					<td class="field">Approval Status</td>
 				</tr>
 
-				<tr>
 					<c:forEach items="${donationList}" var="element">
+					<tr>
 						<td class="value">${element.donarName}</td>
 						<td class="value">${element.bloodGroup}</td>
 						<td class="value">${element.city}</td>
 						<td class="value">${element.glucoseLevel}</td>
 						<td class="value">${element.time}</td>
 						<td class="value">${element.donationStatus}</td>
+					</tr>
 					</c:forEach>
-
-				</tr>
 
 			</table>
 

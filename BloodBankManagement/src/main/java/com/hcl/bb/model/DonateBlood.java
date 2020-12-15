@@ -35,12 +35,16 @@ public class DonateBlood implements Serializable{
 	@Column(name="donation_status",nullable=false,length=20)
     public String donationStatus;
 
+	@Column(name="account_id",nullable=false,length=5)
+	public long accountId;
+	
+	
 	public DonateBlood() {
 		super();
 	}
 
 	public DonateBlood(long patientId, String donarName, String bloodGroup, String city, String glucoseLevel,
-			String time, String donationStatus) {
+			String time, String donationStatus,long accountId) {
 		super();
 		this.patientId = patientId;
 		this.donarName = donarName;
@@ -49,6 +53,7 @@ public class DonateBlood implements Serializable{
 		this.glucoseLevel = glucoseLevel;
 		this.time = time;
 		this.donationStatus = donationStatus;
+		this.accountId=accountId;
 	}
 
 	public long getPatientId() {
@@ -106,4 +111,12 @@ public class DonateBlood implements Serializable{
 	public void setDonationStatus(String donationStatus) {
 		this.donationStatus = donationStatus;
 	}
+	public long getAccountId() {
+		return accountId;
+	}
+
+	public void setAccountId(long accountId) {
+		this.accountId = accountId;
+	}
+
 }

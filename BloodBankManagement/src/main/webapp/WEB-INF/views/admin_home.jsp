@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ include file="navigation-bar3.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,32 +27,49 @@
 	<header>
 		<h1>Hello Admin</h1>
 	</header>
+
+
+	<div id="container">
+
+		<c:if test="${requestAdminList==null}">
+			<p id="message">${message}</p>
+		</c:if>
+
+		<c:if test="${requestAdminList!=null}">
 			<table border="1"
 				class="table table-bordered table-striped table-hover">
 				<tr>
-					<th>Donar Id</th>
-					<th>Donar FirstName</th>
-				    <th>Donar LastName</th>
-				    <th>Donar BloodGroup</th>
-					<th>Donar City</th>
+					<th class="field">Patient Name</th>
+					<th class="field">BloodGroup</th>
+					<th class="field">City</th>
+					<th class="field">Hospital Address</th>
+					<th class="field">Contact Name</th>
+					<th class="field">Contact Number</th>
+					<th class="field">Required On</th>
+					<th class="field">Status</th>
+					<th class="field">Action</th>
 				</tr>
+					<c:forEach items="${requestAdminList}" var="element">
+					<tr>
+						<td class="value">${element.patientName}</td>
+						<td class="value">${element.bloodGroup}</td>
+						<td class="value">${element.city}</td>
+						<td class="value">${element.hospitalAddress}</td>
+						<td class="value">${element.contactName}</td>
+						<td class="value">${element.contactNumber}</td>
+						<td class="value">${element.when}</td>
+					    <td class="value">${element.requestStatus}</td>
+					    <td class="value">
+					    	
+					    </td>
+					</tr>
+					</c:forEach>
 			</table>
-			<table border="1"
-				class="table table-bordered table-striped table-hover">
-				<tr>
-					<th>Patient Id</th>
-					<th>Patient Name</th>
-				    <th>Patient BloodGroup</th>
-				    <th>Patient City</th>
-				    <th>Doctor Name</th>
-				    <th>Hospital Name</th>
-				    <th>Hospital Address</th>
-				    <th>Contact Name</th>
-				    <th>Contact Email</th>
-				    <th>Patient Message</th>
-				    
-					
-				</tr>
-			</table>
+
+
+		</c:if>
+
+	</div>
+
 </body>
 </html>

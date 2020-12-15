@@ -19,11 +19,11 @@ public class RequestStatusDaoImpl implements RequestStatusDao{
 	
 	public List<RequestBlood> getRequestList(User user) {
 
-		String hql="FROM RequestBlood requestBlood WHERE requestBlood.patientId=:patientId";
+		String hql="FROM RequestBlood requestBlood WHERE requestBlood.accountId=:accountId";
 		
 		Session session = sessionFactory.getCurrentSession();
 		Query query = session.createQuery(hql);
-		query.setParameter("patientId",user.getUserId());
+		query.setParameter("accountId",user.getUserId());
 		return query.getResultList();
 		
 	}

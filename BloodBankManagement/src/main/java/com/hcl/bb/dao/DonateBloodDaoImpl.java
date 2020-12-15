@@ -18,7 +18,7 @@ public class DonateBloodDaoImpl implements DonateBloodDao {
   
 		Session session=sessionFactory.getCurrentSession();
 		donateBlood.setDonationStatus("Approval Pending");
-		donateBlood.setPatientId(user.getUserId());
+		donateBlood.setAccountId(user.getUserId());
 		session.save(donateBlood);
 		return true;
 	}

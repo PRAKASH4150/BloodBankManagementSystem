@@ -42,8 +42,8 @@
 					<td class="field">Approval Status</td>
 				</tr>
 
-				<tr>
 					<c:forEach items="${requestList}" var="element">
+					 <tr>
 						<td class="value">${element.patientName}</td>
 						<td class="value">${element.bloodGroup}</td>
 						<td class="value">${element.city}</td>
@@ -51,9 +51,9 @@
 						<td class="value">${element.hospitalAddress}</td>
 						<td class="value">${element.when}</td>
 						<td class="value">${element.requestStatus}</td>
+					  </tr>
 					</c:forEach>
 
-				</tr>
 
 			</table>
 

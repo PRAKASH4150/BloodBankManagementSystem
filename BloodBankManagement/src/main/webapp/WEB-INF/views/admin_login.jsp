@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ include file="navigation-bar1.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,11 +33,11 @@
 
 			<label  class="field">Admin Name<span class="mandatory">*</span></label>
 			<br>
-			<form:input path="userName" class="value" name="admin" id="admin"/>
+			<form:input path="userName" class="value" name="admin" id="admin" placeholder="Enter the admin username"/>
 	        <br>
 			<label  class="field">Password<span class="mandatory">*</span></label>
 			<br>
-			<form:password path="password" class="value" name="password" id="password" />
+			<form:password path="password" class="value" name="password" id="password" placeholder="Enter the admin password"/>
 
 			<input type="submit" id="button1" name="Access"
 				class="btn btn-success" value="LogIn" onclick="return validateFields()">
