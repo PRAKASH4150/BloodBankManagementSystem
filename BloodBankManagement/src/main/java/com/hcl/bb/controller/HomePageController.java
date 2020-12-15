@@ -1,5 +1,9 @@
 package com.hcl.bb.controller;
 
+
+
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +18,9 @@ import com.hcl.bb.model.DonateBlood;
 import com.hcl.bb.model.RequestBlood;
 import com.hcl.bb.model.User;
 import com.hcl.bb.service.DonateBloodService;
+import com.hcl.bb.service.DonationStatus;
 import com.hcl.bb.service.RequestBloodService;
+import com.hcl.bb.service.RequestStatusService;
 
 @Controller
 public class HomePageController {
@@ -24,6 +30,12 @@ public class HomePageController {
 	
 	@Autowired
 	private DonateBloodService donateBloodService;
+	
+	@Autowired
+	private RequestStatusService requestStatusService;
+	
+	@Autowired
+	private DonationStatus donationStatus;
 	
 	@RequestMapping("home")
 	public String home(Model model,HttpServletRequest request)
@@ -73,6 +85,42 @@ public class HomePageController {
 		} catch (ApplicationException e) {
 			model.addAttribute("error",e.getMessage());
 			return "donate_blood";
+		}
+	}
+	
+	@RequestMapping("requestStatus")
+	public String requestStatus(Model model,HttpServletRequest request)
+	{
+		User user=(User)request.getSession().getAttribute("user");
+		List<RequestBlood> requestStatusList=requestStatusService.getRequestList(user);
+		if(requestStatusList.size()>0)
+		{
+			model.addAttribute("requestList",requestStatusList);
+			return "request_status";
+		}
+		else
+		{
+			model.addAttribute("message","You haven't raised any request yet");
+			return "request_status";
+		}
+
+	}
+	
+	@RequestMapping("donationStatus")
+	public String donationStatus(Model model,HttpServletRequest request)
+	{
+		User user=(User)request.getSession().getAttribute("user");
+		List<DonateBlood> donationStatusList=donationStatus.getDonationList(user);
+		
+		if(donationStatusList.size()>0)
+		{
+			model.addAttribute("donationList",donationStatusList);
+			return "donation_status";
+		}
+		else
+		{
+			model.addAttribute("message","You haven't donated yet. Donating blood periodically keeps you healthy.");
+			return "donation_status";
 		}
 	}
 }

@@ -14,8 +14,18 @@
 <style>
 li a {
 	font-size: 20px;
-	color: white;
+    color: white;
 	font-weight: bold;
+}
+#dropdown
+{
+  color:black;
+}
+#status
+{
+padding-left:20px;
+padding-bottom:10px;
+
 }
 </style>
 </head>
@@ -23,9 +33,15 @@ li a {
 	<nav class="navbar navbar-expand-sm bg-dark">
 		<ul class="navbar-nav">
 			<li class="nav-item"><a class="nav-link" href="donarFront">Donate</a></li>
-			<li class="nav-item"><a class="nav-link" href="requestFront">Accept</a></li>
+			<li class="nav-item"><a class="nav-link" href="requestFront">Request</a></li>
+			<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" id="status">Status <span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li class="nav-item"><a id="dropdown" class="nav-link" href="requestStatus">RequestStatus</a></li>			
+			        <li class="nav-item"><a id="dropdown" class="nav-link" href="donationStatus">DonationStatus</a></li>
+				</ul>
+			</li>
+			
 		</ul>
-
 		<ul class="navbar-nav ml-auto">
 			<li class="nav-item"><a href="logout">LogOut</a></li>
 		</ul>

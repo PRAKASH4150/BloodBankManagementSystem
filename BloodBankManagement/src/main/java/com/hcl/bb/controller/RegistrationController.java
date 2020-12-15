@@ -32,7 +32,7 @@ public class RegistrationController {
 			registrationService.validateUser(user);
 			registrationService.doesUserExists(user);
 			registrationService.addUser(user);
-			return "userregn";
+			return "registered";
 			
 		} catch (ApplicationException e) {
 			model.addAttribute("error",e.getMessage());
