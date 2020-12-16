@@ -21,13 +21,12 @@ li a {
 <body>
 	<nav class="navbar navbar-expand-sm bg-dark">
 		<ul class="navbar-nav ml-auto">
-			<li class="nav-item"><a class="nav-link" href="#">AcceptRequests</a></li>
-			<li class="nav-item"><a class="nav-link" href="#">
-					DonarRequests</a></li>
+			<li class="nav-item"><a class="nav-link" href="adminRequestList">AcceptRequests</a></li>
+			<li class="nav-item"><a class="nav-link" href="adminDonarList">DonarRequests</a></li>
 		</ul>
 
 		<ul class="navbar-nav ml-auto">
-			<li class="nav-item"><a href="logout">LogOut</a></li>
+			<li class="nav-item"><a href="adminLogout">LogOut</a></li>
 		</ul>
 	</nav>
 	<br>

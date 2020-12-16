@@ -43,7 +43,7 @@ padding-bottom:10px;
 			
 		</ul>
 		<ul class="navbar-nav ml-auto">
-			<li class="nav-item"><a href="logout">LogOut</a></li>
+			<li class="nav-item"><a href="userLogout">LogOut</a></li>
 		</ul>
 	</nav>
 	<br>

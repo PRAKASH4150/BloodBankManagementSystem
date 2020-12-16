@@ -1,7 +1,5 @@
 package com.hcl.bb.controller;
 
-
-
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -27,100 +25,132 @@ public class HomePageController {
 
 	@Autowired
 	private RequestBloodService requestBloodService;
-	
+
 	@Autowired
 	private DonateBloodService donateBloodService;
-	
+
 	@Autowired
 	private RequestStatusService requestStatusService;
-	
+
 	@Autowired
 	private DonationStatus donationStatus;
-	
+
 	@RequestMapping("home")
-	public String home(Model model,HttpServletRequest request)
-	{
-		model.addAttribute("user",request.getSession().getAttribute("user"));
-		return "home";
+	public String home(Model model, HttpServletRequest request) {
+		User user = (User) request.getSession().getAttribute("user");
+		if (user != null) {
+			model.addAttribute("user", request.getSession().getAttribute("user"));
+			return "home";
+		} else {
+			return "redirect:/login";
+		}
+
 	}
-	
+
 	@RequestMapping("requestFront")
-	public String requestBloodFront(Model model)
-	{
-		model.addAttribute("requestBlood",new RequestBlood());
-		return "request_blood";
-	}
-	
-	@PostMapping("addRequest")
-	public String addRequest(@ModelAttribute("requestBlood") RequestBlood requestBlood,Model model,HttpServletRequest request)
-	{ 
-		try {
-			User user=(User)request.getSession().getAttribute("user");
-			requestBloodService.validateFields(requestBlood);
-			requestBloodService.addRequest(requestBlood, user);
-			return("request-success");
-		} catch (ApplicationException e) {
-			model.addAttribute("error",e.getMessage());
+	public String requestBloodFront(Model model, HttpServletRequest request) {
+		User user = (User) request.getSession().getAttribute("user");
+		if (user != null) {
+			model.addAttribute("requestBlood", new RequestBlood());
 			return "request_blood";
+		} else {
+			return "redirect:/login";
 		}
-		
-     }
-	
+
+	}
+
+	@PostMapping("addRequest")
+	public String addRequest(@ModelAttribute("requestBlood") RequestBlood requestBlood, Model model,
+			HttpServletRequest request) {
+
+		User user = (User) request.getSession().getAttribute("user");
+		if (user != null) {
+			try {
+
+				requestBloodService.validateFields(requestBlood);
+				requestBloodService.addRequest(requestBlood, user);
+				return ("request-success");
+			} catch (ApplicationException e) {
+				model.addAttribute("error", e.getMessage());
+				return "request_blood";
+			}
+		} else {
+			return "redirect:/login";
+
+		}
+
+	}
+
 	@RequestMapping("donarFront")
-	public String donoarFront(Model model)
-	{
-		model.addAttribute("donationDetails",new DonateBlood());
-		return "donate_blood";
-	}
-	
-	@PostMapping("addDonar")
-	public String addDonar(@ModelAttribute("donationDetails")DonateBlood donateBlood,Model model,HttpServletRequest request)
-	{
-		try {
-			User user=(User)request.getSession().getAttribute("user");
-			donateBloodService.validateDetails(donateBlood);
-			donateBloodService.addDonar(donateBlood, user);
-			return"donar-success";
+	public String donoarFront(Model model, HttpServletRequest request) {
+		User user = (User) request.getSession().getAttribute("user");
 
-		} catch (ApplicationException e) {
-			model.addAttribute("error",e.getMessage());
+		if (user != null) {
+			model.addAttribute("donationDetails", new DonateBlood());
 			return "donate_blood";
-		}
-	}
-	
-	@RequestMapping("requestStatus")
-	public String requestStatus(Model model,HttpServletRequest request)
-	{
-		User user=(User)request.getSession().getAttribute("user");
-		List<RequestBlood> requestStatusList=requestStatusService.getRequestList(user);
-		if(requestStatusList.size()>0)
-		{
-			model.addAttribute("requestList",requestStatusList);
-			return "request_status";
-		}
-		else
-		{
-			model.addAttribute("message","You haven't raised any request yet");
-			return "request_status";
+		} else {
+			return "redirect:/login";
 		}
 
 	}
-	
-	@RequestMapping("donationStatus")
-	public String donationStatus(Model model,HttpServletRequest request)
-	{
-		User user=(User)request.getSession().getAttribute("user");
-		List<DonateBlood> donationStatusList=donationStatus.getDonationList(user);
-		
-		if(donationStatusList.size()>0)
-		{
-			model.addAttribute("donationList",donationStatusList);
-			return "donation_status";
+
+	@PostMapping("addDonar")
+	public String addDonar(@ModelAttribute("donationDetails") DonateBlood donateBlood, Model model,
+			HttpServletRequest request) {
+		User user = (User) request.getSession().getAttribute("user");
+		if (user != null) {
+			try {
+				donateBloodService.validateDetails(donateBlood);
+				donateBloodService.addDonar(donateBlood, user);
+				return "donar-success";
+
+			} catch (ApplicationException e) {
+				model.addAttribute("error", e.getMessage());
+				return "donate_blood";
+			}
+		} else {
+			return "redirect:/login";
 		}
-		else
-		{
-			model.addAttribute("message","You haven't donated yet. Donating blood periodically keeps you healthy.");
-			return "donation_status";
+
+	}
+
+	@RequestMapping("requestStatus")
+	public String requestStatus(Model model, HttpServletRequest request) {
+		User user = (User) request.getSession().getAttribute("user");
+
+		if (user != null) {
+			List<RequestBlood> requestStatusList = requestStatusService.getRequestList(user);
+			if (requestStatusList.size() > 0) {
+				model.addAttribute("requestList", requestStatusList);
+				return "request_status";
+			} else {
+				model.addAttribute("message", "You haven't raised any request yet");
+				return "request_status";
+			}
+		}
+
+		else {
+			return "redirect:/login";
+		}
+
+	}
+
+	@RequestMapping("donationStatus")
+	public String donationStatus(Model model, HttpServletRequest request) {
+		User user = (User) request.getSession().getAttribute("user");
+		if (user != null) {
+			List<DonateBlood> donationStatusList = donationStatus.getDonationList(user);
+
+			if (donationStatusList.size() > 0) {
+				model.addAttribute("donationList", donationStatusList);
+				return "donation_status";
+			} else {
+				model.addAttribute("message",
+						"You haven't donated yet. Donating blood periodically keeps you healthy.");
+				return "donation_status";
+			}
+		} else {
+			return "redirect:/login";
 		}
 	}
 }

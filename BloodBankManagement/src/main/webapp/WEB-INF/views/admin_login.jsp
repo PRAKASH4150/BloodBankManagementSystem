@@ -19,7 +19,7 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/styles/admin_login-style.css">
-<script src="${pageContext.request.contextPath}/resources/scripts/admin.js"></script>
+<script src="${pageContext.request.contextPath}/resources/scripts/admin_login.js"></script>
 </head>
 <body>
    <header>
@@ -33,7 +33,7 @@
 
 			<label  class="field">Admin Name<span class="mandatory">*</span></label>
 			<br>
-			<form:input path="userName" class="value" name="admin" id="admin" placeholder="Enter the admin username"/>
+			<form:input path="userName" class="value" name="adminName" id="adminName" placeholder="Enter the admin username"/>
 	        <br>
 			<label  class="field">Password<span class="mandatory">*</span></label>
 			<br>
@@ -42,6 +42,7 @@
 			<input type="submit" id="button1" name="Access"
 				class="btn btn-success" value="LogIn" onclick="return validateFields()">
 			<input type="reset" id="button2" class="btn btn-success" Value="Reset">
+			
 		</form:form>
 	</div>
 </body>

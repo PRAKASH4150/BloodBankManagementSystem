@@ -26,17 +26,15 @@
 
 	<section>
 		<p>
-		    Blood drives life, it's constantly circulating within the human
-			body ensuring that all essential substances like nutrition, oxygen
-			reach all different parts of our body and the cells. An average
-			person carries nearly 5 liters of blood, it circulates the body
-			through blood vessels and is pumped through the heart. It can never
-			be substituted, regenerated, or manufactured. The only source of
-			blood for patients who need blood transfusion are blood donors. In
-			general, blood is a combination of plasma and cells wherein plasma
-			makes up nearly 55 percent of the blood count. The rest 45 percent is
-			a mix of red/white blood cells and platelets
-	    </p>
+		    Blood Bank Management System (BBMS) is a web based system that
+			is dedicated to encouraging blood donations and raising awareness
+			about the importance of our mission. That is why we offer free
+			information about our blood bank, the different types of blood groups
+			available and many more.Donating blood is one of the most generous
+			things you can do to help save another person's life. At the blood
+			bank, we make giving blood easier and more available to everyone who
+			is willing to help our cause and need.
+		</p>
 	</section>
 </body>
 </html>

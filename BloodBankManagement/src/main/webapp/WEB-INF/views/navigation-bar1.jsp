@@ -18,6 +18,10 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-sm bg-dark">
+ <ul class="navbar-nav">
+    <li class="nav-item"><a class="nav-link" href="./">Home</a></li>
+ </ul>
+ 
  <ul class="navbar-nav ml-auto">
      <li class="nav-item"><a class="nav-link" href="front">RegisterAccount</a></li>
      <li class="nav-item"><a class="nav-link" href="login"> LogIn</a></li>

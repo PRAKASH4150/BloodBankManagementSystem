@@ -22,10 +22,15 @@ header h1 {
 .value {
 	text-align: center;
 }
-#message
-{
-	text-align:center;
-	font-size:25px;
-	font-weight:bold;
-	color:black;
+
+#message {
+	text-align: center;
+	font-size: 25px;
+	font-weight: bold;
+	color: black;
+}
+
+.button {
+	width: 125px;
+	margin: 1 auto;
 }

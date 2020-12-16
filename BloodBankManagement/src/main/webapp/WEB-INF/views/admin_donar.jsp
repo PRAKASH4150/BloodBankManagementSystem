@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Admin Home</title>
+<title>Donate Requests</title>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script
@@ -25,55 +25,51 @@
 </head>
 <body>
 	<header>
-		<h1>Accept Requests</h1>
+		<h1>Donate Requests</h1>
 	</header>
 
 
 	<div id="container">
 
-		<c:if test="${requestAdminList==null}">
+		<c:if test="${donateAdminList==null}">
 			<p id="message">${message}</p>
 		</c:if>
 
-		<c:if test="${requestAdminList!=null}">
+		<c:if test="${donateAdminList!=null}">
 			<table border="1"
 				class="table table-bordered table-striped table-hover">
 				<tr>
-					<th class="field">Patient Name</th>
+					<th class="field">Donar Name</th>
 					<th class="field">BloodGroup</th>
 					<th class="field">City</th>
-					<th class="field">Hospital Address</th>
-					<th class="field">Contact Name</th>
-					<th class="field">Contact Number</th>
-					<th class="field">Required On</th>
+					<th class="field">Glucose Level</th>
+					<th class="field">Sample taken at</th>
 					<th class="field">Status</th>
 					<th class="field">Action</th>
 				</tr>
-				<c:forEach items="${requestAdminList}" var="element">
+				<c:forEach items="${donateAdminList}" var="element">
 					<tr>
-						<td class="value">${element.patientName}</td>
+						<td class="value">${element.donarName}</td>
 						<td class="value">${element.bloodGroup}</td>
 						<td class="value">${element.city}</td>
-						<td class="value">${element.hospitalAddress}</td>
-						<td class="value">${element.contactName}</td>
-						<td class="value">${element.contactNumber}</td>
-						<td class="value">${element.when}</td>
-						<td class="value">${element.requestStatus}</td>
-						<c:if test="${element.requestStatus=='Approval Pending'}">
+						<td class="value">${element.glucoseLevel}</td>
+						<td class="value">${element.time}</td>
+						<td class="value">${element.donationStatus}</td>
+						<c:if test="${element.donationStatus=='Approval Pending'}">
 							<td class="value">
-								<form action="approveRequest/${element.patientId}">
+								<form action="approveDonar/${element.patientId}">
 									<input type="submit" class="btn btn-success button"
-										value="Approve" onclick="return confirmApproveRequest()">
+										value="Approve" onclick="return confirmApproveDonar()">
 								</form>
 
-								<form action="rejectRequest/${element.patientId}">
+								<form action="rejectDonar/${element.patientId}">
 									<input type="submit" class="btn btn-danger button"
-										value="Reject" onclick="return confirmRejectRequest()">
+										value="Reject" onclick="return confirmRejectDonar()">
 								</form>
 							</td>
 						</c:if>
 
-						<c:if test="${element.requestStatus!='Approval Pending'}">
+						<c:if test="${element.donationStatus!='Approval Pending'}">
 							<td class="value">No action needed</td>
 						</c:if>
 
