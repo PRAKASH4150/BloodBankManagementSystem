@@ -7,7 +7,11 @@ import org.springframework.stereotype.Repository;
 
 import com.hcl.bb.model.RequestBlood;
 import com.hcl.bb.model.User;
-
+/**
+ * 
+ * @author GummadiSunilKumar (51897413)
+ *
+ */
 @Repository("requestBloodDao")
 public class RequestBloodDaoImpl implements RequestBloodDao{
 

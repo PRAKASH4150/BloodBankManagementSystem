@@ -10,7 +10,11 @@ import org.springframework.stereotype.Service;
 import com.hcl.bb.dao.DonationStatusDao;
 import com.hcl.bb.model.DonateBlood;
 import com.hcl.bb.model.User;
-
+/**
+ * 
+ * @author KanumuriSaketh (51897445)
+ *
+ */
 @Service("donationStatus")
 public class DonationStatusImpl implements DonationStatus {
 

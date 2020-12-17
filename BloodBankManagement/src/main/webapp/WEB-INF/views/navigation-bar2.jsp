@@ -32,6 +32,7 @@ padding-bottom:10px;
 <body>
 	<nav class="navbar navbar-expand-sm bg-dark">
 		<ul class="navbar-nav">
+			<li class="nav-item"><a class="nav-link" href="home">Home</a></li>
 			<li class="nav-item"><a class="nav-link" href="donarFront">Donate</a></li>
 			<li class="nav-item"><a class="nav-link" href="requestFront">Request</a></li>
 			<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" id="status">Status <span class="caret"></span></a>

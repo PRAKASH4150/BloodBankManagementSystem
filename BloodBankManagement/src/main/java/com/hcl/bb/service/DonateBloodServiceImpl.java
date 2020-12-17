@@ -9,7 +9,11 @@ import com.hcl.bb.appexception.ApplicationException;
 import com.hcl.bb.dao.DonateBloodDao;
 import com.hcl.bb.model.DonateBlood;
 import com.hcl.bb.model.User;
-
+/**
+ * 
+ * @author KanumuriSaketh (51897445)
+ *
+ */
 @Service("donateBloodService")
 public class DonateBloodServiceImpl implements DonateBloodService {
 

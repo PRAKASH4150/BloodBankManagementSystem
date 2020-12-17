@@ -10,7 +10,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.hcl.bb.appexception.ApplicationException;
 import com.hcl.bb.model.User;
 import com.hcl.bb.service.RegistrationService;
-
+/**
+ * 
+ * 
+ * @author HanumanSaiLakamsani (51897508)
+ *
+ */
 
 @Controller
 public class RegistrationController {

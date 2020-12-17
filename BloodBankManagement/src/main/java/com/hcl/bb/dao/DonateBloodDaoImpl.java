@@ -7,7 +7,11 @@ import org.springframework.stereotype.Repository;
 
 import com.hcl.bb.model.DonateBlood;
 import com.hcl.bb.model.User;
-
+/**
+ * 
+ * @author KanumuriSaketh (51897445)
+ *
+ */
 @Repository("donateBloodDao")
 public class DonateBloodDaoImpl implements DonateBloodDao {
 

@@ -10,7 +10,11 @@ import org.springframework.stereotype.Service;
 import com.hcl.bb.dao.RequestStatusDao;
 import com.hcl.bb.model.RequestBlood;
 import com.hcl.bb.model.User;
-
+/**
+ * 
+ * @author GummadiSunilKumar (51897413)
+ *
+ */
 @Service("requestStatusService")
 public class RequestStatusServiceImpl implements RequestStatusService{
 

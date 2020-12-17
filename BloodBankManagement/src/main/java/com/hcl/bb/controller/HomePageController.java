@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.hcl.bb.appexception.ApplicationException;
 import com.hcl.bb.model.DonateBlood;
@@ -19,7 +20,12 @@ import com.hcl.bb.service.DonateBloodService;
 import com.hcl.bb.service.DonationStatus;
 import com.hcl.bb.service.RequestBloodService;
 import com.hcl.bb.service.RequestStatusService;
-
+import com.hcl.bb.service.SearchService;
+/**
+ * 
+ * @author GummadiSunilKumar (51897413), KanumuriSaketh (51897445)
+ *
+ */
 @Controller
 public class HomePageController {
 
@@ -34,12 +40,17 @@ public class HomePageController {
 
 	@Autowired
 	private DonationStatus donationStatus;
+	
+	@Autowired
+	private SearchService searchService;
+	
 
 	@RequestMapping("home")
 	public String home(Model model, HttpServletRequest request) {
 		User user = (User) request.getSession().getAttribute("user");
 		if (user != null) {
 			model.addAttribute("user", request.getSession().getAttribute("user"));
+			model.addAttribute("initialMessgae","Welcome");
 			return "home";
 		} else {
 			return "redirect:/login";
@@ -151,6 +162,22 @@ public class HomePageController {
 			}
 		} else {
 			return "redirect:/login";
+		}
+	}
+	
+	@RequestMapping("getResults")
+	public String getSearchResults(@RequestParam("search")String searchQuery,Model model)
+	{
+		List<DonateBlood> searchQueryList=searchService.getSearchResults(searchQuery);
+		if(searchQueryList.size()>0)
+		{
+			model.addAttribute("searchQueryList",searchQueryList);
+			return "home";
+		}
+		else
+		{
+			model.addAttribute("message","No results Found");
+			return "home";
 		}
 	}
 }

@@ -8,7 +8,11 @@ import com.hcl.bb.appexception.ApplicationException;
 import com.hcl.bb.dao.RequestBloodDao;
 import com.hcl.bb.model.RequestBlood;
 import com.hcl.bb.model.User;
-
+/**
+ * 
+ * @author GummadiSunilKumar (51897413)
+ *
+ */
 @Service("requestBloodService")
 public class RequestBloodServiceImpl implements RequestBloodService{
 

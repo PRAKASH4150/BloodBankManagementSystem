@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -20,7 +21,7 @@ li a {
 </head>
 <body>
 	<nav class="navbar navbar-expand-sm bg-dark">
-		<ul class="navbar-nav ml-auto">
+		<ul class="navbar-nav">
 			<li class="nav-item"><a class="nav-link" href="adminRequestList">AcceptRequests</a></li>
 			<li class="nav-item"><a class="nav-link" href="adminDonarList">DonarRequests</a></li>
 		</ul>

@@ -8,7 +8,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
+/**
+ * 
+ * @author KanumuriSaketh (51897445)
+ *
+ */
 @Entity
 @Table(name = "bb_donar")
 public class DonateBlood implements Serializable{

@@ -7,6 +7,12 @@ import org.springframework.transaction.annotation.Transactional;
 import com.hcl.bb.appexception.ApplicationException;
 import com.hcl.bb.dao.LoginDao;
 import com.hcl.bb.model.User;
+/**
+ * 
+ * 
+ * @author HanumanSaiLakamsani (51897508)
+ *
+ */
 
 @Service("loginService")
 public class LoginServiceImpl implements LoginService {

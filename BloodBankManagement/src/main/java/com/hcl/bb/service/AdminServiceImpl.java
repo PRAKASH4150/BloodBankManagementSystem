@@ -12,7 +12,9 @@ import com.hcl.bb.dao.AdminDao;
 import com.hcl.bb.model.Admin;
 import com.hcl.bb.model.DonateBlood;
 import com.hcl.bb.model.RequestBlood;
-
+/**
+ * MokaSaiSuryaPrakash (51897451)
+ */
 @Service("adminService")
 public class AdminServiceImpl implements AdminService{
 

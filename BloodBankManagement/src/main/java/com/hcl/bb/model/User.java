@@ -8,6 +8,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+/**
+ * 
+ * 
+ * @author HanumanSaiLakamsani (51897508)
+ *
+ */
 
 @Entity
 @Table(name="bb_user")

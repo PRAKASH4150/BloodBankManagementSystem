@@ -10,6 +10,12 @@ import org.springframework.stereotype.Repository;
 
 import com.hcl.bb.appexception.ApplicationException;
 import com.hcl.bb.model.User;
+/**
+ * 
+ * 
+ * @author HanumanSaiLakamsani (51897508)
+ *
+ */
 
 @Repository("loginDao")
 public class LoginDaoImpl implements LoginDao {

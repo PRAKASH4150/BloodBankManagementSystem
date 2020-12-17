@@ -1,5 +1,9 @@
 package com.hcl.bb.model;
-
+/**
+ * 
+ * @author MokaSaiSuryaPrakash (51897451)
+ *
+ */
 public class Admin {
 	
 	private String userName;

@@ -6,6 +6,10 @@ import com.hcl.bb.appexception.ApplicationException;
 import com.hcl.bb.model.Admin;
 import com.hcl.bb.model.DonateBlood;
 import com.hcl.bb.model.RequestBlood;
+
+/**
+ * MokaSaiSuryaPrakash (51897451)
+ */
 public interface AdminService {
 
 	public boolean validateAdmin(Admin admin) throws ApplicationException;
